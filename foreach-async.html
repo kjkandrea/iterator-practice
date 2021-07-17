@@ -16,17 +16,17 @@
     </article>
     <button type="button" id="replay">replay</button>
     <section>
-        <h2>forEach async</h2>
+        <h2>Parallel</h2>
+        <h3>forEach async</h3>
         <code>range.forEach(async () => { const timeStamp = await model.get(); this.renderer.render(timeStamp) })</code>
         <ul id="forEachAsync" class="time-stamp"></ul>
-    </section>
-    <section>
-        <h2>Promise All</h2>
+        <h3>Promise All</h3>
         <code>const timeStampGetters = range.map(() => model.get()); Promise.all(timeStampGetters).then(timeStamps => timeStamps.forEach(this.renderer.render.bind(this.renderer)))</code>
         <ul id="promiseAll" class="time-stamp"></ul>
     </section>
     <section>
-        <h2>For of</h2>
+        <h2>Sequence</h2>
+        <h3>For of</h3>
         <code>for (const _ of range) { const timeStamp = await model.get(); this.renderer.render(timeStamp) }<code></code>
         <ul id="stepByStep" class="time-stamp"></ul>
     </section>

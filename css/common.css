@@ -2,8 +2,7 @@ body, button {
     font-family: monospace;
 }
 
-h2 {
-    font-size: 1rem;
+h1, h2, h3 {
     font-weight: 400;
 }
 
