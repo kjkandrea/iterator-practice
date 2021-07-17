@@ -9,3 +9,15 @@ ul.time-stamp {
 ul.time-stamp data {
     display: block;
 }
+
+data.start {
+    background-color: #ED2938;
+}
+
+data.end {
+    background-color: #FFE135;
+}
+
+data.margin {
+    background-color: #28CC2D;
+}
