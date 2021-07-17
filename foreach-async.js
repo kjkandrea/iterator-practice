@@ -2,20 +2,10 @@ import model from '/assistant/timestamp/model.js'
 import Renderer from '/assistant/timestamp/renderer.js'
 
 const runner = {
-  el: document.getElementById('timeStamp'),
-  renderer: null,
+  renderer: new Renderer(document.getElementById('timeStamp')),
   range: new Array(100).fill(0).map((_, i) => i),
   init() {
-    this.test()
-    this.setRenderer()
-
     this.forEachAsync.init.call(this)
-  },
-  setRenderer() {
-    this.renderer = new Renderer(this.el)
-  },
-  test() {
-    model.get().then(console.log)
   },
   forEachAsync: {
     init() {
@@ -30,4 +20,4 @@ const runner = {
   }
 }
 
-runner.init.call(runner)
+window.addEventListener('DOMContentLoaded', runner.init.bind(runner))
