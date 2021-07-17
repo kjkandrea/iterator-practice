@@ -1,0 +1,11 @@
+ul.time-stamp {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    border: 1px solid #e5e5e5;
+}
+
+ul.time-stamp data {
+    display: block;
+}
