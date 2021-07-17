@@ -1,0 +1,23 @@
+{
+  "name": "iterator-practice",
+  "version": "1.0.0",
+  "description": "반복자들에 대해 확인이 없었던 문제들 요모조모 탐구",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "lite-server index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjkandrea/iterator-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjkandrea/iterator-practice/issues"
+  },
+  "homepage": "https://github.com/kjkandrea/iterator-practice#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
