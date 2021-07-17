@@ -2,8 +2,8 @@ class Renderer {
   constructor(target) {
     this.target = target;
   }
-  render() {
-    const el = this.generatePartialElement({start: 1, end: 3, margin: 2});
+  render(timeStamp) {
+    const el = this.generatePartialElement(timeStamp);
     this.target.append(el)
   }
   generatePartialElement(timeStamp) {
