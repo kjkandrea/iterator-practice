@@ -2,22 +2,57 @@ import model from '/assistant/timestamp/model.js'
 import Renderer from '/assistant/timestamp/renderer.js'
 
 const runner = {
-  renderer: new Renderer(document.getElementById('timeStamp')),
-  range: new Array(10).fill(0).map((_, i) => i),
+  range: new Array(5).fill(0).map((_, i) => i),
   init() {
+    this.run();
+
+    this.bindReplayEvent()
+  },
+  run() {
     this.forEachAsync.init.call(this)
+    this.promiseAll.init.call(this)
+    this.stepByStep.init.call(this)
+  },
+  bindReplayEvent() {
+    const replayButtonElement = document.getElementById('replay')
+    replayButtonElement.addEventListener('click', () => { window.location.reload() })
   },
   forEachAsync: {
+    renderer: new Renderer(document.getElementById('forEachAsync'), Date.now()),
     init() {
       this.forEachAsync.run(this.range)
     },
     run(range) {
       range.forEach(async () => {
         const timeStamp = await model.get()
-        runner.renderer.render(timeStamp)
+        this.renderer.render(timeStamp)
       })
     }
-  }
+  },
+  promiseAll: {
+    renderer: new Renderer(document.getElementById('promiseAll'), Date.now()),
+    init() {
+      this.promiseAll.run(this.range)
+    },
+    run(range) {
+      const timeStampGetters = range.map(() => model.get())
+      Promise.all(timeStampGetters)
+        .then(timeStamps => timeStamps.forEach(this.renderer.render.bind(this.renderer)))
+
+    }
+  },
+  stepByStep: {
+    renderer: new Renderer(document.getElementById('stepByStep'), Date.now()),
+    init() {
+      this.stepByStep.run(this.range)
+    },
+    async run(range) {
+      for (const _ of range) {
+        const timeStamp = await model.get()
+        this.renderer.render(timeStamp)
+      }
+    }
+  },
 }
 
 window.addEventListener('DOMContentLoaded', runner.init.bind(runner))

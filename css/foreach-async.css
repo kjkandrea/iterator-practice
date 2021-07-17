@@ -4,22 +4,41 @@ ul.time-stamp {
     font-size: 0;
 
     list-style: none;
+
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: #f1f1f1;
+}
+
+ul.time-stamp li {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0;
+    border-style: inherit;
+    border-color: inherit;
 }
 
 ul.time-stamp data {
     display: inline-block;
-    width: 5px;
-    height: 10px;
+    min-width: 1px;
 }
 
-data.start {
+ul.time-stamp data.start {
+    height: 1px;
     background-color: #ED2938;
 }
 
-data.end {
+ul.time-stamp data.end {
+    height: 1px;
     background-color: #FFE135;
 }
 
-data.margin {
-    background-color: #28CC2D;
+ul.time-stamp data.margin {
+    display: block;
+    height: 5px;
+    background-color: #FFAA1C;
 }

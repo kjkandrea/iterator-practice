@@ -1,8 +1,8 @@
 const model = {
-  randomTimer(next) {
+  randomTimer(next, msMin = 200) {
     const msMargin = Math.floor(Math.random() * 50)
 
-    setTimeout(next, 200 + msMargin)
+    setTimeout(next, msMin + msMargin)
   },
   get() {
     const startUnixTime = Date.now()

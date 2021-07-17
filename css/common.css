@@ -1,0 +1,20 @@
+body, button {
+    font-family: monospace;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+article {
+    margin-bottom: 2rem;
+}
+
+code {
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 6px;
+    font-size: 85%;
+    margin: 0;
+    padding: .2em .4em;
+}

@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iterator Practice</title>
+    <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/foreach-async.css">
 </head>
 <body>
-<h2>forEach async</h2>
 <div id="app">
-    <ul id="timeStamp" class="time-stamp"></ul>
+    <article>
+        <h2>how to handle async/await</h2>
+        <p>How to run async loops in sequence or in parallel?</p>
+        <a href="https://velog.io/@hanameee/%EB%B0%B0%EC%97%B4%EC%97%90-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85%EC%9D%84-%EC%8B%A4%EC%8B%9C%ED%95%A0-%EB%95%8C-%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4-%EC%A2%8B%EC%9D%84%EB%B2%95%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%93%A4" target="_blank">article</a>
+    </article>
+    <button type="button" id="replay">replay</button>
+    <section>
+        <h2>forEach async</h2>
+        <code>range.forEach(async () => { const timeStamp = await model.get(); this.renderer.render(timeStamp) })</code>
+        <ul id="forEachAsync" class="time-stamp"></ul>
+    </section>
+    <section>
+        <h2>Promise All</h2>
+        <code>const timeStampGetters = range.map(() => model.get()); Promise.all(timeStampGetters).then(timeStamps => timeStamps.forEach(this.renderer.render.bind(this.renderer)))</code>
+        <ul id="promiseAll" class="time-stamp"></ul>
+    </section>
+    <section>
+        <h2>For of</h2>
+        <code>for (const _ of range) { const timeStamp = await model.get(); this.renderer.render(timeStamp) }<code></code>
+        <ul id="stepByStep" class="time-stamp"></ul>
+    </section>
 </div>
 </body>
 <script src="foreach-async.js" type="module"></script>
