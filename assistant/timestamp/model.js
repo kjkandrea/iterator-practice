@@ -1,4 +1,4 @@
-const asyncTimeStamp = {
+const model = {
   randomTimer(next) {
     const msMargin = Math.floor(Math.random() * 50)
 
@@ -22,4 +22,4 @@ const asyncTimeStamp = {
   }
 }
 
-export default asyncTimeStamp
+export default model
