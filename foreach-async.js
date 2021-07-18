@@ -1,5 +1,5 @@
-import model from '/assistant/timestamp/model.js'
-import Renderer from '/assistant/timestamp/renderer.js'
+import model from './assistant/timestamp/model.js'
+import Renderer from './assistant/timestamp/renderer.js'
 
 const runner = {
   range: new Array(5).fill(0).map((_, i) => i),
