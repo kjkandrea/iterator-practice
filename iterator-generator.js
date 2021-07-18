@@ -3,11 +3,12 @@ const runner = {
     this.run();
   },
   run() {
-    this.createLikedIterator.init()
+    this.onlyIterator.init()
+    this.iterableIterator.init()
   },
-  createLikedIterator: {
+  onlyIterator: {
     init() {
-      console.group('createLikedIterator')
+      console.group('onlyIterator')
 
       this.useNext()
 
@@ -32,6 +33,42 @@ const runner = {
       console.log(this.iterator.next().value)
       console.log(this.iterator.next().value)
       console.log(this.iterator.next().value)
+    }
+  },
+  iterableIterator: {
+    init() {
+      console.group('iterableIterator')
+
+      this.useNext()
+      this.useForOf()
+      this.useSpread()
+    },
+    iterator : (() => {
+      let num = 1
+
+      const next = () => {
+          num = num * 2
+          return num > 10000
+            ? { done: true }
+            : { done: false, value: num }
+        }
+
+      return {
+        [Symbol.iterator]: () => ({ next }),
+        next,
+      }
+    })(),
+    useNext() {
+      console.log(this.iterator.next().value)
+    },
+    useForOf() {
+      for (const value of this.iterator) {
+        console.log(value)
+        if (value > 100) break;
+      }
+    },
+    useSpread() {
+      console.log(...this.iterator)
     }
   }
 }
