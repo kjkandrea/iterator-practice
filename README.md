@@ -59,4 +59,25 @@ range.forEach(async () => {
 * 이터레이터는 배열의 부분 집합이다.
 * **이터레이터는 배열과 달리 값을 미리 다 계산하여 보관할 필요가 없다.**
 * **이터레이터는 next()를 호출했을때에 필요한 값만 계산 한다.**
-* **이터레이터는 배열에 비해 메모리를 적게 소비한다.**
+* **이터레이터는 배열에 비해 메모리를 적게 소비한다.*
+
+### 이터레이터와 이터러블
+
+#### Iterator
+
+``` javascript
+const iter = getIterator()
+
+iter.next() // { value, done }
+// ...
+```
+
+#### Iterable
+
+``` javascript
+for (const value for getIterator()) {
+  // do something
+}
+// or
+[...getIterator()]
+```
