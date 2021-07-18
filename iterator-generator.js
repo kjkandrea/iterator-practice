@@ -7,10 +7,14 @@ const runner = {
   },
   createLikedIterator: {
     init() {
+      console.group('createLikedIterator')
+
       this.useNext()
 
       console.log(this.iterator.next().value)
       console.log(this.iterator.next().done)
+
+      console.groupEnd()
     },
     iterator : (() => {
       let num = 1
