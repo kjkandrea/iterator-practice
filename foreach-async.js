@@ -38,7 +38,7 @@ const runner = {
       const timeStampGetters = range.map(() => model.get())
       Promise.all(timeStampGetters)
         .then(timeStamps => timeStamps.forEach(this.renderer.render.bind(this.renderer)))
-
+        .then(() => console.log('promiseAll Done. loop count : %s', timeStampGetters.length)) // forEach 는 완료시점 포착 불가.
     }
   },
   stepByStep: {
